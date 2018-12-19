@@ -25,7 +25,7 @@ def run_type():
     print('\tMax iterations = 5\n\tLearning method = online\n\tLearning offset = 50.0')
     print('\tRandom state = 0\n\tNumber of top words per doc = 10\n')
     print('To bypass SQL credentials input:\n\t- Comment out line 84\n\t- Uncomment lines 88-91\n\t- ' \
-          'Update credentials in line 88\n')
+          'Update credentials in line 88\n\t- Update DB, schema, and table in line 90\n')
     print('Please input the number indicating where your corpus is being loaded from:')
     print('\t(1) SQL\n\t(2) Excel\n\t(3) CSV\n\t(4) Exit the program')
     choice = str(raw_input().lower().strip())
