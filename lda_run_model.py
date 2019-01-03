@@ -15,17 +15,22 @@ def clean_datetime():
     '''
     return str(datetime.datetime.now().replace(second=0, microsecond=0)).replace(':', '').replace(' ', '_')[:-2]
 
-def run_type():
+def run_type(ins):
+    '''
+    Prompt user for LDA model run type.
+    Args:
+        ins = LDA model inputs
+    '''
     print('Please note that your data must be a table containing the following columns (named accordingly):')
     print('\t[File_Name]\n\t[File_Path]\n\t[Words]\n')
     print('Currently, the following hyperparameters are set. If you wish to change, please see line '\
-          '81 of `lda_run_model.py`')
-    print('\tNumber of features = 100\n\tTerm freq upper bound = 0.9\n\tTerm freq lower bound = 0.1\n\t' \
-          'Number of topics = 20')
-    print('\tMax iterations = 5\n\tLearning method = online\n\tLearning offset = 50.0')
-    print('\tRandom state = 0\n\tNumber of top words per doc = 10\n')
-    print('To bypass SQL credentials input:\n\t- Comment out line 84\n\t- Uncomment lines 88-91\n\t- ' \
-          'Update credentials in line 88\n\t- Update DB, schema, and table in line 90\n')
+          '86 of `lda_run_model.py`')
+    print('\tNumber of features = '+str(ins.n_feats)+'\n\tTerm freq upper bound = '+str(ins.max_df)+ \
+          '\n\tTerm freq lower bound = '+str(ins.min_df)+'\n\tNumber of topics = '+str(ins.n_topics))
+    print('\tMax iterations = '+str(ins.max_iter)+'\n\tLearning method = '+str(ins.method)+'\n\tLearning offset = '+str(ins.offset))
+    print('\tRandom state = '+str(ins.r_state)+'\n\tNumber of top words per doc = '+str(ins.n_top_words)+'\n')
+    print('To bypass SQL credentials input:\n\t- Comment out line 89\n\t- Uncomment lines 93-96\n\t- ' \
+          'Update credentials in line 93\n\t- Update DB, schema, and table in line 95\n')
     print('Please input the number indicating where your corpus is being loaded from:')
     print('\t(1) SQL\n\t(2) Excel\n\t(3) CSV\n\t(4) Exit the program')
     choice = str(raw_input().lower().strip())
@@ -81,9 +86,9 @@ def main():
     ins = LDAinputs(100, 0.9, 0.1, 20, 5, 'online', 50.0, 0, 10)
     
     # Prompt user for info to pull corpus as dataframe
-    df = run_type()
+    df = run_type(ins)
     
-    # COMMENT OUT LINE 84 AND USE THE FOLLOWING TO BYPASS SQL CREDENTIAL INPUT
+    # COMMENT OUT LINE 86 AND USE THE FOLLOWING TO BYPASS SQL CREDENTIAL INPUT
     # Read SQL table to dataframe
 #    driver, server, user = '{SQL Server Native Client 11.0}', 'SERVER_NAME', 'DOMAIN\USERNAME'
 #    with SQL(driver, server, user) as db:
