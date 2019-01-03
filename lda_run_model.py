@@ -2,8 +2,8 @@
 
 from __future__ import print_function, division
 import datetime
-import pandas as pd
 import nlp_utils as nlp
+import pandas as pd
 from pysql import SQL
 import sys
 from sklearn.decomposition import LatentDirichletAllocation
