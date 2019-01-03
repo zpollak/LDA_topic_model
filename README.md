@@ -4,12 +4,16 @@
 Build a Latent Dirichlet Allocation (LDA) model to discover topics that exist across a corpus of documents and assign a topic to each document.
 
 ### Instructions
-1. Place the 3 files from this repository in a directory.<br>
+1. To extract the text from your corpus of Excel files, place the `excel_corpus_to_sql.py` file in the top directory containing all of your Excel files. The script will recursively traverse the directory looking for all xlrd-compatible Excel files and write the information to a SQL table.
+    a. You will have to create the SQL table beforehand with the following columns: **[Words, File_Name, Tab_Name, Cells, File_Path]**
+2. Place the remaining 3 files from this repository in a directory together.<br>
     a. If you are using a SQL table as your input, the files can go in any directory.<br>
     b. If you are using a local file as your input, the files must be placed in a directory with that file.<br>
-2. Navigate to the directory via the command line and run with `python lda_run_model.py`.
+3. Navigate to the directory via the command line and run with `python lda_run_model.py`.
+4. Follow the instructions in your terminal to build your model.
 
 #### Modules
+  - `excel_corpus_to_sql.py` will extract text in all tabs and cells from a corpus of Excel files and write to a preexisting SQL table
   - `lda_run_model` is where the model is built; it leverages the `pysql` and `nlp_utils` modules
   - `pysql` contains a SQL class in the event your input table is stored in a database
   - `nlp_utils` contains some helper functions for cleaning text and extracting topics from the LDA model
