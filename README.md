@@ -8,7 +8,7 @@ Build a Latent Dirichlet Allocation (LDA) model to discover topics that exist ac
     a. You will have to create an empty SQL table beforehand with the following columns:<br>
     **[Words, File_Name, Tab_Name, Cells, File_Path]**<br>
     b. Navigate to the directory via the command line and run with `python excel_corpus_to_sql.py`.<br>
-2. It is best to keep all modules in a directory together.<br>
+2. All modules should be in a directory together. Both the `excel_corpus_to_sql` and `lda_run_model` modules make use of the `nlp_utils` and `pysql` modules.<br>
     a. If you are using a SQL table as your input, the modules can go in any directory. If you plan to use the `excel_corpus_to_sql` module, place them in the top level directory containing your Excel files.<br>
     b. If you are using a local file as your input, the modules must be placed in a directory with that file.<br>
 3. Navigate to the directory via the command line and run with `python lda_run_model.py`.
