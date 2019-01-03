@@ -83,7 +83,7 @@ def main():
     # Prompt user for info to pull corpus as dataframe
     df = run_type()
     
-    # COMMENT OUT LINE 81 AND USE THE FOLLOWING TO BYPASS SQL CREDENTIAL INPUT
+    # COMMENT OUT LINE 84 AND USE THE FOLLOWING TO BYPASS SQL CREDENTIAL INPUT
     # Read SQL table to dataframe
 #    driver, server, user = '{SQL Server Native Client 11.0}', 'SERVER_NAME', 'DOMAIN\USERNAME'
 #    with SQL(driver, server, user) as db:
