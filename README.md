@@ -17,7 +17,7 @@ Build a Latent Dirichlet Allocation (LDA) model to discover topics that exist ac
 #### Modules
   - `excel_corpus_to_sql` will extract text in all tabs and cells from a corpus of Excel files and write to a preexisting SQL table; it leverages the `pysql` and `nlp_utils` modules
   - `lda_run_model` is where the model is built; it leverages the `pysql` and `nlp_utils` modules
-  - `pysql` contains a SQL class in the event your input table is stored in a database
+  - `pysql` contains a SQL class in the event you need to create your input table via `excel_corpus_to_sql` or your input table is already stored in a database
   - `nlp_utils` contains some helper functions for cleaning text and extracting topics from the LDA model
 
 #### Inputs
