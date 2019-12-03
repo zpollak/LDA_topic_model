@@ -75,7 +75,7 @@ def xl_word_count():
                     print('File already loaded.')
                     continue
                 # Only check xlrd compatible files
-                if filename.lower().endswith('.xls') or filename.lower().endswith('xlsx') or filename.lower().endswith('xlsm') or filename.lower().endswith('xlk') or filename.lower().endswith('xltx'):
+                if filename.lower().endswith(('.xls','xlsx','xlsm','xlk','xltx')):
                     filepath = os.path.join(root, filename)
                     cur_file += 1
                     print(filepath)
